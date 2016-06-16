@@ -1,10 +1,11 @@
 
                
-def LeastSquaresValueAtX(points, knownX, xBar, x):
+def LeastSquaresValueAtX(points, knownX, x):
     '''
         Gets the value at a given x using the line of best fit
         (least square method) to determine the equation
     '''
+    xBar = sum(knownX) / (len(knownX)+0.0)
     slope = SlopeOfPoints(points, knownX, xBar)
     yIntercept = YInterceptOfPoints(points, xBar, slope)
     return (slope * x) + yIntercept
@@ -38,9 +39,9 @@ def YInterceptOfPoints(points, xBar, slope):
 
 
 def test(knownX, t):
-    if t==1: return LeastSquaresValueAtX([4,13,10,22,20],[2011,2010,2009,2008,2007],2009,2012)
-    if t==2: return LeastSquaresValueAtX([7,20,26,29,23],knownX, 2009,2012)
-    if t==3: return LeastSquaresValueAtX([6,5,4,3,7], knownX, 2009,2012)
+    if t==1: return LeastSquaresValueAtX([4,13,10,22,20],[2011,2010,2009,2008,2007],2012)
+    if t==2: return LeastSquaresValueAtX([7,20,26,29,23],knownX, 2012)
+    if t==3: return LeastSquaresValueAtX([6,5,4,3,7], knownX, 2012)
     
 
 print test([2011,2010,2009,2008,2007], 1)##26.1
